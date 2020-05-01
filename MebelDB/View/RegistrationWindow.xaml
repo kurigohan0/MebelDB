@@ -5,20 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MebelDB.View"
         mc:Ignorable="d"
-        Title="Регистрация" Height="321" Width="309" ResizeMode="NoResize">
+        Title="Регистрация" Height="321" Width="309" ResizeMode="NoResize" Background="#FF121212">
     <Grid>
-        <TextBox Height="23" Margin="105,79,26,0" TextWrapping="Wrap" Text="{Binding Path=Login}" VerticalAlignment="Top"/>
-        <Label Content="Регистрация" Margin="10,10,26,0" HorizontalContentAlignment="Center" VerticalAlignment="Top" Height="50" FontSize="30"/>
-        <TextBox Height="23" Margin="105,107,26,0" TextWrapping="Wrap" Text="{Binding Path=Password}" VerticalAlignment="Top"/>
-        <Label Content="Логин" Margin="10,76,206,0" VerticalAlignment="Top"/>
-        <Label Content="Пароль" Margin="10,107,206,0" VerticalAlignment="Top"/>
-        <TextBox Height="23" Margin="105,137,26,0" TextWrapping="Wrap" Text="{Binding Path=Name}" VerticalAlignment="Top"/>
-        <TextBox Height="23" Margin="105,165,26,0" TextWrapping="Wrap" Text="{Binding Path= Lastname}" VerticalAlignment="Top"/>
-        <Label Content="Имя" Margin="10,134,206,0" VerticalAlignment="Top"/>
-        <Label Content="Фамилия" Margin="10,165,206,0" VerticalAlignment="Top"/>
-        <TextBox Height="23" Margin="105,193,26,0" TextWrapping="Wrap" Text="{Binding Path=Patronic}" VerticalAlignment="Top"/>
-        <Label Content="Отчетсво" Margin="10,193,206,0" VerticalAlignment="Top"/>
-        <Button Content="Регистрация"  Command="{Binding Path=RegistrationCommand}" Margin="10,0,26,21" Height="35" VerticalAlignment="Bottom"/>
+        <TextBox Height="23" Margin="105,79,26,0" TextWrapping="Wrap" Text="{Binding Path=Login}" VerticalAlignment="Top" Background="#FF2D2D2D" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
+        <Label Content="Регистрация" Margin="10,10,26,0" HorizontalContentAlignment="Center" VerticalAlignment="Top" Height="50" FontSize="30" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans Medium"/>
+        <TextBox Height="23" Margin="105,107,26,0" TextWrapping="Wrap" Text="{Binding Path=Password}" VerticalAlignment="Top" Background="#FF2D2D2D" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
+        <Label Content="Логин" Margin="10,76,206,0" VerticalAlignment="Top" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
+        <Label Content="Пароль" Margin="10,107,206,0" VerticalAlignment="Top" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
+        <TextBox Height="23" Margin="105,137,26,0" TextWrapping="Wrap" Text="{Binding Path=Name}" VerticalAlignment="Top" Background="#FF2D2D2D" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
+        <TextBox Height="23" Margin="105,165,26,0" TextWrapping="Wrap" Text="{Binding Path= Lastname}" VerticalAlignment="Top" Background="#FF2D2D2D" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
+        <Label Content="Имя" Margin="10,134,206,0" VerticalAlignment="Top" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
+        <Label Content="Фамилия" Margin="10,165,206,0" VerticalAlignment="Top" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
+        <TextBox Height="23" Margin="105,193,26,0" TextWrapping="Wrap" Text="{Binding Path=Patronic}" VerticalAlignment="Top" Background="#FF2D2D2D" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
+        <Label Content="Отчетсво" Margin="10,193,206,0" VerticalAlignment="Top" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
+        <Button Content="Регистрация"  Command="{Binding Path=RegistrationCommand}" Margin="10,0,26,21" Height="35" VerticalAlignment="Bottom" Background="#FF2D2D2D" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans Medium"/>
 
     </Grid>
 </Window>
