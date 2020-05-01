@@ -1,0 +1,421 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище MebelModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "Mebel.dbo.access" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="access">
+          <Property Name="Vendor_code" Type="nvarchar" MaxLength="30" />
+          <Property Name="Name" Type="nvarchar" MaxLength="30" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="Unit_measuring" Type="nvarchar" MaxLength="10" />
+          <Property Name="Type_component" Type="nvarchar" MaxLength="30" />
+          <Property Name="Purchase_price" Type="int" />
+          <Property Name="Main_supplier" Type="nvarchar" MaxLength="30" />
+          <Property Name="Image" Type="image" />
+          <Property Name="Weight" Type="nchar" MaxLength="10" />
+        </EntityType>-->
+  <EntityType Name="Assembly_unit_specification">
+    <Key>
+      <PropertyRef Name="Product" />
+      <PropertyRef Name="Assembly_unit" />
+    </Key>
+    <Property Name="Product" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Assembly_unit" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="quantities" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Equipment">
+    <Key>
+      <PropertyRef Name="Marking" />
+    </Key>
+    <Property Name="Marking" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Type_Equipment" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Specifications" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Furniture">
+    <Key>
+      <PropertyRef Name="Vendor_code" />
+    </Key>
+    <Property Name="Vendor_code" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="30" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Unit_measuring" Type="nvarchar" MaxLength="10" />
+    <Property Name="Type_component" Type="nvarchar" MaxLength="30" />
+    <Property Name="Purchase_price" Type="int" />
+    <Property Name="Main_supplier" Type="nvarchar" MaxLength="30" />
+    <Property Name="Image" Type="image" />
+    <Property Name="Weight" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Materials">
+    <Key>
+      <PropertyRef Name="Vendor_code" />
+    </Key>
+    <Property Name="Vendor_code" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="30" />
+    <Property Name="Unit_measuring" Type="nvarchar" MaxLength="10" />
+    <Property Name="Length" Type="float" />
+    <Property Name="Quantity" Type="nvarchar" MaxLength="16" />
+    <Property Name="Type_material" Type="nvarchar" MaxLength="30" />
+    <Property Name="Purchase_price" Type="nvarchar" MaxLength="30" />
+    <Property Name="GOST" Type="nvarchar" MaxLength="30" />
+    <Property Name="Main_supplier" Type="nvarchar" MaxLength="30" />
+    <Property Name="Image" Type="image" />
+    <Property Name="Characteristic" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Operation_Specification">
+    <Key>
+      <PropertyRef Name="Product" />
+      <PropertyRef Name="Operation" />
+      <PropertyRef Name="Serial_Number" />
+    </Key>
+    <Property Name="Product" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Operation" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Serial_Number" Type="int" Nullable="false" />
+    <Property Name="Type_Equipment" Type="nvarchar" MaxLength="30" />
+    <Property Name="Time_on_operation" Type="time" Precision="7" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="Id_Order" />
+      <PropertyRef Name="Data" />
+    </Key>
+    <Property Name="Id_Order" Type="int" Nullable="false" />
+    <Property Name="Data" Type="date" Nullable="false" />
+    <Property Name="Name_Order" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Product" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Customer" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="Responsible_Manager" Type="nvarchar" MaxLength="15" />
+    <Property Name="Cost" Type="int" />
+    <Property Name="Planned_date_Completion" Type="date" />
+    <Property Name="Schemes_drawings_Order" Type="image" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="Name_Product" />
+    </Key>
+    <Property Name="Name_Product" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Product_size" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Specification_furniture">
+    <Key>
+      <PropertyRef Name="Product" />
+    </Key>
+    <Property Name="Product" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Furniture" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Specification_materials">
+    <Key>
+      <PropertyRef Name="Product" />
+    </Key>
+    <Property Name="Product" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Material" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="quantity" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Specifications_EAV">
+    <Key>
+      <PropertyRef Name="id_specification" />
+    </Key>
+    <Property Name="id_specification" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="Suppliers">
+    <Key>
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="30" />
+    <Property Name="Delivery_period" Type="nchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Type_Equipment">
+    <Key>
+      <PropertyRef Name="Type_Equipment" />
+    </Key>
+    <Property Name="Type_Equipment" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Login" />
+    </Key>
+    <Property Name="Login" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="18" />
+    <Property Name="Role" Type="nvarchar" MaxLength="21" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="30" />
+    <Property Name="Name" Type="nvarchar" MaxLength="30" />
+    <Property Name="Patronymic" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Values_EAV">
+    <Key>
+      <PropertyRef Name="id_value" />
+    </Key>
+    <Property Name="id_value" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_specification" Type="int" Nullable="false" />
+    <Property Name="marking" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="value" Type="nvarchar" MaxLength="64" />
+  </EntityType>
+  <Association Name="FK_Assembly_unit_specification_Product">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="Assembly_unit_specification" Type="Self.Assembly_unit_specification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Name_Product" />
+      </Principal>
+      <Dependent Role="Assembly_unit_specification">
+        <PropertyRef Name="Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Assembly_unit_specification_Product1">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="Assembly_unit_specification" Type="Self.Assembly_unit_specification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Name_Product" />
+      </Principal>
+      <Dependent Role="Assembly_unit_specification">
+        <PropertyRef Name="Assembly_unit" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Equipment_Type_Equipment">
+    <End Role="Type_Equipment" Type="Self.Type_Equipment" Multiplicity="1" />
+    <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Type_Equipment">
+        <PropertyRef Name="Type_Equipment" />
+      </Principal>
+      <Dependent Role="Equipment">
+        <PropertyRef Name="Type_Equipment" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Furnitura_Supplier">
+    <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="0..1" />
+    <End Role="Furniture" Type="Self.Furniture" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Suppliers">
+        <PropertyRef Name="Name" />
+      </Principal>
+      <Dependent Role="Furniture">
+        <PropertyRef Name="Main_supplier" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Materials_Supplier">
+    <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="0..1" />
+    <End Role="Materials" Type="Self.Materials" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Suppliers">
+        <PropertyRef Name="Name" />
+      </Principal>
+      <Dependent Role="Materials">
+        <PropertyRef Name="Main_supplier" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Operation_Specification_Product">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="Operation_Specification" Type="Self.Operation_Specification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Name_Product" />
+      </Principal>
+      <Dependent Role="Operation_Specification">
+        <PropertyRef Name="Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Operation_Specification_Type_Equipment">
+    <End Role="Type_Equipment" Type="Self.Type_Equipment" Multiplicity="0..1" />
+    <End Role="Operation_Specification" Type="Self.Operation_Specification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Type_Equipment">
+        <PropertyRef Name="Type_Equipment" />
+      </Principal>
+      <Dependent Role="Operation_Specification">
+        <PropertyRef Name="Type_Equipment" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Product">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Name_Product" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_User">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Login" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="Customer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_User1">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Login" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="Responsible_Manager" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Specification_furniture">
+    <End Role="Specification_furniture" Type="Self.Specification_furniture" Multiplicity="1" />
+    <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Specification_furniture">
+        <PropertyRef Name="Product" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="Name_Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Specification_materials">
+    <End Role="Specification_materials" Type="Self.Specification_materials" Multiplicity="1" />
+    <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Specification_materials">
+        <PropertyRef Name="Product" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="Name_Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Specification_furniture_Furnitura">
+    <End Role="Furniture" Type="Self.Furniture" Multiplicity="1" />
+    <End Role="Specification_furniture" Type="Self.Specification_furniture" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Furniture">
+        <PropertyRef Name="Vendor_code" />
+      </Principal>
+      <Dependent Role="Specification_furniture">
+        <PropertyRef Name="Furniture" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Specification_materials_Materials">
+    <End Role="Materials" Type="Self.Materials" Multiplicity="1" />
+    <End Role="Specification_materials" Type="Self.Specification_materials" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Materials">
+        <PropertyRef Name="Vendor_code" />
+      </Principal>
+      <Dependent Role="Specification_materials">
+        <PropertyRef Name="Material" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Values_EAV_Specifications_EAV">
+    <End Role="Specifications_EAV" Type="Self.Specifications_EAV" Multiplicity="1" />
+    <End Role="Values_EAV" Type="Self.Values_EAV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Specifications_EAV">
+        <PropertyRef Name="id_specification" />
+      </Principal>
+      <Dependent Role="Values_EAV">
+        <PropertyRef Name="id_specification" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище MebelModelContainer">
+    <EntitySet Name="Assembly_unit_specification" EntityType="Self.Assembly_unit_specification" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Equipment" EntityType="Self.Equipment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Furniture" EntityType="Self.Furniture" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Materials" EntityType="Self.Materials" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Operation_Specification" EntityType="Self.Operation_Specification" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Specification_furniture" EntityType="Self.Specification_furniture" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Specification_materials" EntityType="Self.Specification_materials" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Specifications_EAV" EntityType="Self.Specifications_EAV" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Suppliers" EntityType="Self.Suppliers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Type_Equipment" EntityType="Self.Type_Equipment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Values_EAV" EntityType="Self.Values_EAV" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Assembly_unit_specification_Product" Association="Self.FK_Assembly_unit_specification_Product">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Assembly_unit_specification" EntitySet="Assembly_unit_specification" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Assembly_unit_specification_Product1" Association="Self.FK_Assembly_unit_specification_Product1">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Assembly_unit_specification" EntitySet="Assembly_unit_specification" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Equipment_Type_Equipment" Association="Self.FK_Equipment_Type_Equipment">
+      <End Role="Type_Equipment" EntitySet="Type_Equipment" />
+      <End Role="Equipment" EntitySet="Equipment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Furnitura_Supplier" Association="Self.FK_Furnitura_Supplier">
+      <End Role="Suppliers" EntitySet="Suppliers" />
+      <End Role="Furniture" EntitySet="Furniture" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Materials_Supplier" Association="Self.FK_Materials_Supplier">
+      <End Role="Suppliers" EntitySet="Suppliers" />
+      <End Role="Materials" EntitySet="Materials" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Operation_Specification_Product" Association="Self.FK_Operation_Specification_Product">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Operation_Specification" EntitySet="Operation_Specification" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Operation_Specification_Type_Equipment" Association="Self.FK_Operation_Specification_Type_Equipment">
+      <End Role="Type_Equipment" EntitySet="Type_Equipment" />
+      <End Role="Operation_Specification" EntitySet="Operation_Specification" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Product" Association="Self.FK_Order_Product">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_User" Association="Self.FK_Order_User">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_User1" Association="Self.FK_Order_User1">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Specification_furniture" Association="Self.FK_Product_Specification_furniture">
+      <End Role="Specification_furniture" EntitySet="Specification_furniture" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Specification_materials" Association="Self.FK_Product_Specification_materials">
+      <End Role="Specification_materials" EntitySet="Specification_materials" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Specification_furniture_Furnitura" Association="Self.FK_Specification_furniture_Furnitura">
+      <End Role="Furniture" EntitySet="Furniture" />
+      <End Role="Specification_furniture" EntitySet="Specification_furniture" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Specification_materials_Materials" Association="Self.FK_Specification_materials_Materials">
+      <End Role="Materials" EntitySet="Materials" />
+      <End Role="Specification_materials" EntitySet="Specification_materials" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Values_EAV_Specifications_EAV" Association="Self.FK_Values_EAV_Specifications_EAV">
+      <End Role="Specifications_EAV" EntitySet="Specifications_EAV" />
+      <End Role="Values_EAV" EntitySet="Values_EAV" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

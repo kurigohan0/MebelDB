@@ -1,0 +1,34 @@
+﻿<Window x:Class="MebelDB.View.NavWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MebelDB.View"
+        mc:Ignorable="d"
+        Title="DEBUG MENU" Height="542" Width="800" Background="#FF121212">
+    <Grid>
+        <ToolBarTray IsLocked="True" Height="25" VerticalAlignment="Top" Background="#FF1E1E1E">
+            <ToolBar Height="25" VerticalAlignment="Top" Background="#FF1E1E1E">
+                <Button Foreground="White" Command="{Binding Path=AllOrders}" FontFamily="/MebelDB;component/Resources/#Google Sans">
+                    <Button.Content>Список заказов</Button.Content>
+                    
+                </Button>
+                <Button Foreground="White" Command="{Binding Path=CreateOrder}" FontFamily="/MebelDB;component/Resources/#Google Sans">
+                    <Button.Content>Оформление заказа [MANAGER ONLY]</Button.Content>
+                </Button>
+                <Button Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans">
+                    <Button.Content>Сбой оборудования [MASTER ONLY]</Button.Content>
+                </Button>
+                <Button Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans">
+                    <Button.Content>Контроль качества [MASTER ONLY]</Button.Content>
+                </Button>
+            </ToolBar>
+
+        </ToolBarTray>
+        <Frame x:Name="frame" Background="#FF1E1E1E" Margin="20,70,22,21">
+            
+            
+        </Frame>
+        <Label Content="DEBUG MENU" HorizontalContentAlignment="Center" Margin="0,25,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="#33FFD100" FontFamily="/MebelDB;component/Resources/#Google Sans Medium"/>
+    </Grid>
+</Window>
