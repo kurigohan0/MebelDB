@@ -19,7 +19,7 @@
         <Label HorizontalContentAlignment="Center" Grid.Row="0" VerticalContentAlignment="Center" Content="Фурнитура" Margin="10,5,10,0" VerticalAlignment="Top" RenderTransformOrigin="-1.053,0.385" Height="45" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans Medium" FontSize="24"/>
         <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Материалы" Margin="10,5,10,0" VerticalAlignment="Top" RenderTransformOrigin="-1.053,0.385" Height="45" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans Medium" FontSize="24" Grid.Column="1"/>
 
-        <ListView ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto"  ItemsSource="{Binding Path=FurnitureSet}" Grid.Column="0" Margin="10,60,10,40"  Background="#FF2D2D2D" Foreground="White" FontFamily="Google Sans">
+        <ListView SelectedIndex="{Binding Path=SelectedFurniture}" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto"  ItemsSource="{Binding Path=FurnitureSet}" Grid.Column="0" Margin="10,60,10,40"  Background="#FF2D2D2D" Foreground="White" FontFamily="Google Sans">
 
 
 
@@ -41,7 +41,7 @@
 
         </ListView>
 
-        <ListView ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ItemsSource="{Binding Path=MaterialSet}" Grid.Column="1" Margin="10,60,10,40"  Background="#FF2D2D2D" Foreground="White" FontFamily="Google Sans">
+        <ListView ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ItemsSource="{Binding Path=MaterialSet}" SelectedIndex="{Binding Path=SelectedMaterial}" Grid.Column="1" Margin="10,60,10,40"  Background="#FF2D2D2D" Foreground="White" FontFamily="Google Sans">
             <ListView.View>
 
                 <GridView>
@@ -58,51 +58,55 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Content="Изменить материал" Grid.Column="1" Margin="10,0,10,10" Height="20" VerticalAlignment="Bottom"/>
-        <Button Content="Изменить фурнитуру" Grid.Column="0" Margin="10,0,10,10" Height="20" VerticalAlignment="Bottom"/>
+        <Button Command="{Binding Path=EditMaterialCommand}" Content="Изменить материал" Grid.Column="1" Margin="10,0,10,10" Height="20" VerticalAlignment="Bottom"/>
+        <Button Command="{Binding Path=EditFurnitureCommand}" Content="Изменить фурнитуру" Grid.Column="0" Margin="10,0,10,10" Height="20" VerticalAlignment="Bottom"/>
 
 
-        <Grid Grid.Column="0" Background="#FF121212" IsEnabled="{Binding Path=EditFurniture}" Margin="10,0" Height="210" VerticalAlignment="Bottom">
+        <Grid Grid.Column="0" Background="#FF121212" Visibility="{Binding Path=EditFurniture}" Margin="10,0" Height="210" VerticalAlignment="Bottom">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
-            <Label Content="Название:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="105" Height="26" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
-            <Label Content="Ед. изм:" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="105" Height="26" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
-            <Label Content="Количество:" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Width="105" Height="26" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
-            <Label Content="Тип компонента:" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top" Width="105" Height="26" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
-            <Label Content="Цена покупки:" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top" Width="105" Height="26" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
-            <TextBox Background="#FF2D2D2D" Height="23" Margin="115,14,10,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Grid.ColumnSpan="2" SelectionBrush="#FF939393" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
-            <TextBox Background="#FF2D2D2D" Height="23" Margin="115,45,10,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Grid.ColumnSpan="2" SelectionBrush="#FF939393" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
-            <TextBox Background="#FF2D2D2D" Height="23" Margin="115,75,10,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Grid.ColumnSpan="2" SelectionBrush="#FF939393" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
-            <TextBox Background="#FF2D2D2D" Height="23" Margin="115,106,10,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Grid.ColumnSpan="2" SelectionBrush="#FF939393" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
-            <TextBox Background="#FF2D2D2D" Height="23" Margin="115,137,10,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Grid.ColumnSpan="2" SelectionBrush="#FF939393" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
-            <Button Content="Удалить" Margin="10,0,10,10" Height="20" VerticalAlignment="Bottom" Grid.Column="0" Background="#FF2D2D2D" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans Medium"/>
-            <Button Content="Сохранить" Margin="10,0,10,10" Height="20" VerticalAlignment="Bottom" Grid.Column="1" Background="#FF2D2D2D" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans Medium"/>
+            <Label Content="Название:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="105" Height="26" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans" Grid.ColumnSpan="2"/>
+            <Label Content="Ед. изм:" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="105" Height="26" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans" Grid.ColumnSpan="2"/>
+            <Label Content="Количество:" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Width="105" Height="26" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans" Grid.ColumnSpan="2"/>
+            <Label Content="Тип компонента:" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top" Width="105" Height="26" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans" Grid.ColumnSpan="2"/>
+            <Label Content="Цена покупки:" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top" Width="105" Height="26" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans" Grid.ColumnSpan="2"/>
+            <TextBox Background="#FF2D2D2D" Height="23" Margin="20,14,10,0" TextWrapping="Wrap" Text="{Binding Path=FurnitureName}" VerticalAlignment="Top" Grid.ColumnSpan="2" SelectionBrush="#FF939393" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans" Grid.Column="1"/>
+            <TextBox Background="#FF2D2D2D" Height="23" Margin="20,45,10,0" TextWrapping="Wrap" Text="{Binding Path=FurnitureMeasuring}" VerticalAlignment="Top" Grid.ColumnSpan="2" SelectionBrush="#FF939393" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans" Grid.Column="1"/>
+            <TextBox Background="#FF2D2D2D" Height="23" Margin="20,75,10,0" TextWrapping="Wrap" Text="{Binding Path=FurnitureQuantity}" VerticalAlignment="Top" Grid.ColumnSpan="2" SelectionBrush="#FF939393" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans" Grid.Column="1"/>
+            <TextBox Background="#FF2D2D2D" Height="23" Margin="20,106,10,0" TextWrapping="Wrap" Text="{Binding Path=FurnitureType}" VerticalAlignment="Top" Grid.ColumnSpan="2" SelectionBrush="#FF939393" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans" Grid.Column="1"/>
+            <TextBox Background="#FF2D2D2D" Height="23" Margin="20,137,10,0" TextWrapping="Wrap" Text="{Binding Path=FurniturePrice}" VerticalAlignment="Top" Grid.ColumnSpan="2" SelectionBrush="#FF939393" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans" Grid.Column="1"/>
+            <Button Command="{Binding Path=FurnitureDeleteCommand}" Content="Удалить" Margin="10,0,10,10" Height="20" VerticalAlignment="Bottom" Grid.Column="0" Background="#FF2D2D2D" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans Medium"/>
+            <Button Command="{Binding Path=FurnitureSaveCommand}" Content="Сохранить" Margin="10,0,10,10" Height="20" VerticalAlignment="Bottom" Grid.Column="2" Background="#FF2D2D2D" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans Medium"/>
+            <Button Command="{Binding Path=FurnitureCancelCommand}" Content="Отменить" Margin="10,0,10,10" Height="20" VerticalAlignment="Bottom" Grid.Column="1" Background="#FF2D2D2D" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans Medium"/>
 
         </Grid>
 
-        <Grid Grid.Column="1" Background="#FF121212" IsEnabled="{Binding Path=EditMaterial}" Margin="10,0" Height="270" VerticalAlignment="Bottom">
+        <Grid Grid.Column="1" Background="#FF121212" Visibility="{Binding Path=EditMaterial}" Margin="10,0" Height="270" VerticalAlignment="Bottom">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             <Label Content="Название:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="105" Height="26" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
             <Label Content="Ед. изм:" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="105" Height="26" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
             <Label Content="Количество:" HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top" Width="105" Height="26" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
             <Label Content="Тип материала:" HorizontalAlignment="Left" Margin="10,141,0,0" VerticalAlignment="Top" Width="105" Height="26" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
             <Label Content="Цена покупки:" HorizontalAlignment="Left" Margin="10,172,0,0" VerticalAlignment="Top" Width="105" Height="26" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
-            <TextBox Background="#FF2D2D2D" Height="23" Margin="115,14,10,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Grid.ColumnSpan="2" SelectionBrush="#FF939393" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
-            <TextBox Background="#FF2D2D2D" Height="23" Margin="115,45,10,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Grid.ColumnSpan="2" SelectionBrush="#FF939393" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
-            <TextBox Background="#FF2D2D2D" Height="23" Margin="115,113,10,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Grid.ColumnSpan="2" SelectionBrush="#FF939393" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
-            <TextBox Background="#FF2D2D2D" Height="23" Margin="115,144,10,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Grid.ColumnSpan="2" SelectionBrush="#FF939393" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
-            <TextBox Background="#FF2D2D2D" Height="23" Margin="115,175,10,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Grid.ColumnSpan="2" SelectionBrush="#FF939393" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
-            <Button Content="Удалить" Margin="10,0,10,10" Height="20" VerticalAlignment="Bottom" Grid.Column="0" Background="#FF2D2D2D" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans Medium"/>
-            <Button Content="Сохранить" Margin="10,0,10,10" Height="20" VerticalAlignment="Bottom" Grid.Column="1" Background="#FF2D2D2D" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans Medium"/>
+            <TextBox Background="#FF2D2D2D" Height="23" Margin="115,14,10,0" TextWrapping="Wrap" Text="{Binding Path=MaterialName}" VerticalAlignment="Top" Grid.ColumnSpan="3" SelectionBrush="#FF939393" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
+            <TextBox Background="#FF2D2D2D" Height="23" Margin="115,45,10,0" TextWrapping="Wrap" Text="{Binding Path=MaterialMeasuring}" VerticalAlignment="Top" Grid.ColumnSpan="3" SelectionBrush="#FF939393" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
+            <TextBox Background="#FF2D2D2D" Height="23" Margin="115,113,10,0" TextWrapping="Wrap" Text="{Binding Path=MaterialQuantity}" VerticalAlignment="Top" Grid.ColumnSpan="3" SelectionBrush="#FF939393" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
+            <TextBox Background="#FF2D2D2D" Height="23" Margin="115,144,10,0" TextWrapping="Wrap" Text="{Binding Path=MaterialType}" VerticalAlignment="Top" Grid.ColumnSpan="3" SelectionBrush="#FF939393" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
+            <TextBox Background="#FF2D2D2D" Height="23" Margin="115,175,10,0" TextWrapping="Wrap" Text="{Binding Path=MaterialPrice}" VerticalAlignment="Top" Grid.ColumnSpan="3" SelectionBrush="#FF939393" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
+            <Button Command="{Binding Path=MaterialDeleteCommand}" Content="Удалить" Margin="10,0,10,10" Height="20" VerticalAlignment="Bottom" Grid.Column="0" Background="#FF2D2D2D" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans Medium"/>
+            <Button Command="{Binding Path=MaterialSaveCommand}" Content="Сохранить" Margin="10,0,10,10" Height="20" VerticalAlignment="Bottom" Grid.Column="2" Background="#FF2D2D2D" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans Medium"/>
             <Label Content="Длина:" HorizontalAlignment="Left" Margin="10,77,0,0" VerticalAlignment="Top" Width="105" Height="26" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
-            <TextBox Background="#FF2D2D2D" Height="23" Margin="115,80,10,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Grid.ColumnSpan="2" SelectionBrush="#FF939393" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
+            <TextBox Background="#FF2D2D2D" Height="23" Margin="115,80,10,0" TextWrapping="Wrap" Text="{Binding Path=MaterialLength}" VerticalAlignment="Top" Grid.ColumnSpan="3" SelectionBrush="#FF939393" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
             <Label Content="Гост:" HorizontalAlignment="Left" Margin="10,203,0,0" VerticalAlignment="Top" Width="105" Height="26" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
-            <TextBox Background="#FF2D2D2D" Height="23" Margin="115,206,10,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Grid.ColumnSpan="2" SelectionBrush="#FF939393" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
+            <TextBox Background="#FF2D2D2D" Height="23" Margin="115,206,10,0" TextWrapping="Wrap" Text="{Binding Path=MaterialGOST}" VerticalAlignment="Top" Grid.ColumnSpan="3" SelectionBrush="#FF939393" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
+            <Button Command="{Binding Path=MaterialCancelCommand}" Content="Отменить" Margin="10,0,10,10" Height="20" VerticalAlignment="Bottom" Grid.Column="1" Background="#FF2D2D2D" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans Medium"/>
 
         </Grid>
 
