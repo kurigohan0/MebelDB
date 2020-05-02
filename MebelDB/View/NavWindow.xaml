@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         Title="DEBUG MENU" Height="542" Width="800" Background="#FF121212">
     <Grid>
-        <ToolBarTray IsLocked="True" Height="25" VerticalAlignment="Top" Background="#FF1E1E1E">
+        <ToolBarTray IsLocked="False" Height="50" VerticalAlignment="Top" Background="#FF1E1E1E">
             <ToolBar Height="25" VerticalAlignment="Top" Background="#FF1E1E1E">
                 <Button Foreground="White" Command="{Binding Path=AllOrders}" FontFamily="/MebelDB;component/Resources/#Google Sans">
                     <Button.Content>Список заказов</Button.Content>
-                    
+
                 </Button>
                 <Button Foreground="White" Command="{Binding Path=CreateOrder}" FontFamily="/MebelDB;component/Resources/#Google Sans">
                     <Button.Content>Оформление заказа [MANAGER ONLY]</Button.Content>
@@ -22,13 +22,23 @@
                 <Button Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans">
                     <Button.Content>Контроль качества [MASTER ONLY]</Button.Content>
                 </Button>
+                <Button Foreground="White" Command="{Binding Path=AllEquipment}" FontFamily="/MebelDB;component/Resources/#Google Sans">
+                    <Button.Content>Учет оборудования [DIRECTOR ONLY]</Button.Content>
+                </Button>
+                <Button Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans">
+                    <Button.Content>Учет фурнитуры и материалов</Button.Content>
+                </Button>
             </ToolBar>
 
         </ToolBarTray>
-        <Frame x:Name="frame" Background="#FF1E1E1E" Margin="20,70,22,21">
-            
-            
-        </Frame>
+
+
+        <TabControl  x:Name="Tabs" Background="#FF1E1E1E" Margin="20,50,22,21">
+            <!--<Frame x:Name="frame" Margin="0,20,0,0"></Frame>-->
+        </TabControl>
+        <Button Command="{Binding Path=CloseTab}" Content="X" VerticalAlignment="Top" Height="25" HorizontalAlignment="Right" Width="30" ToolTip="Закрыть вкладку"/>
+
+
         <Label Content="DEBUG MENU" HorizontalContentAlignment="Center" Margin="0,25,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="#33FFD100" FontFamily="/MebelDB;component/Resources/#Google Sans Medium"/>
     </Grid>
 </Window>

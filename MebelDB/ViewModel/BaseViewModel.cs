@@ -12,6 +12,11 @@ namespace MebelDB.ViewModel
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        protected Model.MebelEntities GetEntities()
+        {
+            return new Model.MebelEntities();
+        }
+
         protected void OnPropertyChanged([CallerMemberName]string prop = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));

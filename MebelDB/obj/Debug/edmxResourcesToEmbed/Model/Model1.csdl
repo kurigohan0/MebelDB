@@ -137,16 +137,6 @@
     <NavigationProperty Name="Furniture" Relationship="Self.FK_Furnitura_Supplier" FromRole="Suppliers" ToRole="Furniture" />
     <NavigationProperty Name="Materials" Relationship="Self.FK_Materials_Supplier" FromRole="Suppliers" ToRole="Materials" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
   <EntityType Name="Type_Equipment">
     <Key>
       <PropertyRef Name="Type_Equipment1" />
@@ -370,7 +360,6 @@
     <EntitySet Name="Specification_materials" EntityType="Self.Specification_materials" />
     <EntitySet Name="Specifications_EAV" EntityType="Self.Specifications_EAV" />
     <EntitySet Name="Suppliers" EntityType="Self.Suppliers" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
     <EntitySet Name="Type_Equipment" EntityType="Self.Type_Equipment" />
     <EntitySet Name="Users" EntityType="Self.Users" />
     <EntitySet Name="Values_EAV" EntityType="Self.Values_EAV" />

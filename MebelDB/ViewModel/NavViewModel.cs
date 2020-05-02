@@ -14,10 +14,21 @@ namespace MebelDB.ViewModel
     {
         Window w;
         Frame f;
-        public NavViewModel(Window w, Frame f)
+        TabControl tabs;
+
+        private List<ushort> tabindex = new List<ushort>();
+
+        public NavViewModel(Window w, TabControl tabs, Frame f = null)
         {
             this.w = w;
             this.f = f;
+            this.tabs = tabs;
+
+            for (int i = 0; i < 10; i++)
+            {
+                tabindex.Add(0);
+                
+            }
         }
 
         private Page windowPage;
@@ -43,7 +54,64 @@ namespace MebelDB.ViewModel
                 return createOrder ??
                     (createOrder = new RelayCommand(obj =>
                     {
-                        f.Navigate(new View.CreateOrderPage());
+                        tabindex[1] += 1;
+
+                        tabs.Items.Add(new TabItem
+                        {
+
+                            Header = new TextBlock { Text = $"Создание заказа [{tabindex[1]}]" },
+
+                            Content = new Frame().Content = new View.CreateOrderPage()
+
+                        });
+                        
+
+
+                        //f.Content = new View.CreateOrderPage();
+                        //f.Navigate(new View.CreateOrderPage());
+                    }));
+            }
+
+        }
+
+        private RelayCommand closeTab;
+
+        public RelayCommand CloseTab
+        {
+            get
+            {
+                return closeTab ??
+                    (closeTab = new RelayCommand(obj =>
+                    {
+                        if(tabs.SelectedIndex != -1)
+                            tabs.Items.RemoveAt(tabs.SelectedIndex);
+
+                        //f.Navigate(new View.EquipmentPage());
+                    }));
+            }
+
+        }
+
+        private RelayCommand allEquipment;
+
+        public RelayCommand AllEquipment
+        {
+            get
+            {
+                return allEquipment ??
+                    (allEquipment = new RelayCommand(obj =>
+                    {
+                        tabindex[4] += 1;
+                        tabs.Items.Add(new TabItem
+                        {
+
+                            Header = new TextBlock { Text = $"Учет оборудования  [{tabindex[4]}]" },
+
+                            Content = new Frame().Content = new View.EquipmentPage()
+
+                        });
+
+                        //f.Navigate(new View.EquipmentPage());
                     }));
             }
 
@@ -58,7 +126,17 @@ namespace MebelDB.ViewModel
                 return allOrders ??
                     (allOrders = new RelayCommand(obj =>
                     {
-                        f.Navigate(new View.AllOrdersPage());
+                        tabindex[0] += 1;
+                        tabs.Items.Add(new TabItem
+                        {
+
+                            Header = new TextBlock { Text = $"Все заказы [{tabindex[0]}]" },
+
+                            Content = new Frame().Content = new View.AllOrdersPage()
+
+                        });
+
+                        //f.Navigate(new View.AllOrdersPage());
                     }));
             }
 

@@ -10,19 +10,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace MebelDB.View
 {
     /// <summary>
-    /// Логика взаимодействия для NavWindow.xaml
+    /// Логика взаимодействия для Equipment.xaml
     /// </summary>
-    public partial class NavWindow : Window
+    public partial class EquipmentPage : Page
     {
-        public NavWindow()
+        public EquipmentPage()
         {
             InitializeComponent();
-            DataContext = new ViewModel.NavViewModel(this, Tabs );
+            DataContext = new ViewModel.EquipmentViewModel();
         }
     }
 }

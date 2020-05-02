@@ -36,7 +36,6 @@ namespace MebelDB.Model
         public virtual DbSet<Specification_materials> Specification_materials { get; set; }
         public virtual DbSet<Specifications_EAV> Specifications_EAV { get; set; }
         public virtual DbSet<Suppliers> Suppliers { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Type_Equipment> Type_Equipment { get; set; }
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<Values_EAV> Values_EAV { get; set; }
