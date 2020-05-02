@@ -89,3 +89,5 @@ C:\Users\Evgeny\Documents\GitHub\MebelDB\MebelDB\obj\Debug\MebelDB.pdb
 C:\Users\Evgeny\Documents\GitHub\MebelDB\MebelDB\obj\Debug\View\EquipmentPage.g.cs
 C:\Users\Evgeny\Documents\GitHub\MebelDB\MebelDB\obj\Debug\View\EquipmentPage.baml
 C:\Users\Evgeny\Documents\GitHub\MebelDB\MebelDB\obj\Debug\Themes\Generic.baml
+C:\Users\Evgeny\Documents\GitHub\MebelDB\MebelDB\obj\Debug\View\MFControlPage.g.cs
+C:\Users\Evgeny\Documents\GitHub\MebelDB\MebelDB\obj\Debug\View\MFControlPage.baml

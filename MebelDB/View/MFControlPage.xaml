@@ -1,0 +1,58 @@
+﻿<Page x:Class="MebelDB.View.MFControlPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MebelDB.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MFControlPage">
+
+    <Grid>
+
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        
+        <Label HorizontalContentAlignment="Center" Grid.Row="0" VerticalContentAlignment="Center" Content="Фурнитура" Margin="10,5,10,0" VerticalAlignment="Top" RenderTransformOrigin="-1.053,0.385" Height="45" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans Medium" FontSize="24"/>
+        <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Материалы" Margin="10,5,10,0" VerticalAlignment="Top" RenderTransformOrigin="-1.053,0.385" Height="45" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans Medium" FontSize="24" Grid.Column="1"/>
+
+        <ListView  ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto"  ItemsSource="{Binding Path=FurnitureSet}" Grid.Column="0" Margin="10,60,10,40"  Background="#FF2D2D2D" Foreground="White" FontFamily="Google Sans">
+            
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Vendor_code}">Код вендора</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Name}" Width="100">Название</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Unit_measuring}">ед. изм.</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Quantity}">Количество</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Type_component}">Тип компонента</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Purchase_price}">Цена покупки</GridViewColumn>
+
+
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <ListView ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ItemsSource="{Binding Path=MaterialSet}" Grid.Column="1" Margin="10,60,10,40"  Background="#FF2D2D2D" Foreground="White" FontFamily="Google Sans">
+            <ListView.View>
+                
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Vendor_code}">Код вендора</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Name}" Width="100">Название</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Unit_measuring}">ед. изм.</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Length}">Длина</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Quantity}">Количество</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Type_material}">Тип материала</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Purchase_price}">Цена покупки</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=GOST}">ГОСТ</GridViewColumn>
+
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+</Page>

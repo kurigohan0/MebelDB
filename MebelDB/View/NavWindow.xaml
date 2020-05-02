@@ -25,7 +25,7 @@
                 <Button Foreground="White" Command="{Binding Path=AllEquipment}" FontFamily="/MebelDB;component/Resources/#Google Sans">
                     <Button.Content>Учет оборудования [DIRECTOR ONLY]</Button.Content>
                 </Button>
-                <Button Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans">
+                <Button Foreground="White" Command="{Binding Path=MFControl}" FontFamily="/MebelDB;component/Resources/#Google Sans">
                     <Button.Content>Учет фурнитуры и материалов</Button.Content>
                 </Button>
             </ToolBar>
@@ -35,7 +35,7 @@
 
         <TabControl  x:Name="Tabs" Background="#FF1E1E1E" Margin="20,48,22,21">
             <!--<Frame x:Name="frame" Margin="0,20,0,0"></Frame>-->
-            <TabItem Margin="-2,0">
+            <TabItem >
 
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
@@ -43,7 +43,7 @@
                         <TextBlock Margin="3">Окно приветстивия</TextBlock>
                     </StackPanel>
                 </TabItem.Header>
-                <Label Content="Выберите вкладку для начала работы. " HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="32" Foreground="#FF5D5D5D" FontFamily="/MebelDB;component/Resources/#Google Sans Medium"></Label>
+                <Label  Content="{Binding Path=TipMsg}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="32" Foreground="#FF5D5D5D" FontFamily="/MebelDB;component/Resources/#Google Sans Medium"></Label>
 
             </TabItem>
         </TabControl>

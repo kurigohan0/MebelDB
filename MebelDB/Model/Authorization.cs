@@ -20,7 +20,16 @@ namespace MebelDB.Model
 
             public static Role Auth(string login, string pass)
             {
-    #if DEBUG
+#if DEBUG
+            CurrentUser.User = new Model.Users
+            {
+                Name = "[Name]",
+                Login = "[Login]",
+                Password = "[Password]",
+                Role = "Директор",
+                Surname = "[Surname]",
+                Patronymic = "[Partonymic]"
+            };
                 return Role.Manager;
     #else
 

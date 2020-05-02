@@ -19,9 +19,9 @@ namespace MebelDB.ViewModel
 
         private void Load()
         {
-            Model.MebelEntities mebelEntities = new Model.MebelEntities();
+            
 
-            foreach (var item in mebelEntities.Orders)
+            foreach (var item in GetEntities().Orders)
             {
                 allOrders.Add(item);
                 

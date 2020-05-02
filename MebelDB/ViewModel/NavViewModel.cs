@@ -24,6 +24,8 @@ namespace MebelDB.ViewModel
             this.f = f;
             this.tabs = tabs;
 
+            tipMsg = Model.CurrentUser.User.Name + ", выберите вкладку для начала работы. ";
+
             for (int i = 0; i < 10; i++)
             {
                 tabindex.Add(0);
@@ -74,6 +76,35 @@ namespace MebelDB.ViewModel
 
         }
 
+        private RelayCommand mfcontrol;
+
+        public RelayCommand MFControl
+        {
+            get
+            {
+                return mfcontrol ??
+                    (mfcontrol = new RelayCommand(obj =>
+                    {
+                        tabindex[5] += 1;
+
+                        tabs.Items.Add(new TabItem
+                        {
+
+                            Header = new TextBlock { Text = $"Учет фурнитуры и материалов [{tabindex[5]}]" },
+
+                            Content = new Frame().Content = new View.MFControlPage()
+
+                        });
+
+
+
+                        //f.Content = new View.CreateOrderPage();
+                        //f.Navigate(new View.CreateOrderPage());
+                    }));
+            }
+
+        }
+
         private RelayCommand closeTab;
 
         public RelayCommand CloseTab
@@ -90,6 +121,16 @@ namespace MebelDB.ViewModel
                     }));
             }
 
+        }
+
+        private string tipMsg;
+        public string TipMsg
+        {
+            get
+            {
+                return tipMsg;
+            }
+            
         }
 
         private RelayCommand allEquipment;
