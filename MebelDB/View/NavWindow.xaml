@@ -5,37 +5,73 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MebelDB.View"
         mc:Ignorable="d"
-        Title="DEBUG MENU" Height="557" Width="1184" Background="#FF121212">
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="DEBUG MENU" Height="612" Width="1499">
     <Grid>
-        <ToolBarTray IsLocked="True" Height="50" VerticalAlignment="Top" Background="#FF1E1E1E">
-            <ToolBar Height="25" VerticalAlignment="Top" Background="#FF1E1E1E">
-                <Button Foreground="White" Command="{Binding Path=AllOrders}" FontFamily="/MebelDB;component/Resources/#Google Sans">
-                    <Button.Content>Список заказов</Button.Content>
 
-                </Button>
-                <Button Foreground="White" Command="{Binding Path=CreateOrder}" FontFamily="/MebelDB;component/Resources/#Google Sans">
-                    <Button.Content>Оформление заказа [MANAGER ONLY]</Button.Content>
-                </Button>
-                <Button Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans">
-                    <Button.Content>Сбой оборудования [MASTER ONLY]</Button.Content>
-                </Button>
-                <Button Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans">
-                    <Button.Content>Контроль качества [MASTER ONLY]</Button.Content>
-                </Button>
-                <Button Foreground="White" Command="{Binding Path=AllEquipment}" FontFamily="/MebelDB;component/Resources/#Google Sans">
-                    <Button.Content>Учет оборудования [DIRECTOR ONLY]</Button.Content>
-                </Button>
-                <Button Foreground="White" Command="{Binding Path=MFControl}" FontFamily="/MebelDB;component/Resources/#Google Sans">
-                    <Button.Content>Учет фурнитуры и материалов</Button.Content>
-                </Button>
-            </ToolBar>
+        <materialDesign:Card Padding="0" Grid.Column="0" Height="55" VerticalAlignment="Top">
 
-        </ToolBarTray>
+            <ToolBarTray Style="{DynamicResource MaterialDesignToolBarTray}" IsLocked="True" Height="55" VerticalAlignment="Top">
+                <ToolBar Style="{DynamicResource MaterialDesignToolBar}" Height="55" VerticalAlignment="Top" Margin="0,0,0,-30" >
+                    <Button Command="{Binding Path=AllOrders}" FontFamily="/MebelDB;component/Resources/#Google Sans">
+                        <Button.Foreground>
+                            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlDarkDarkColorKey}}"/>
+                        </Button.Foreground>
+                        <Button.Content>Список заказов</Button.Content>
+
+                    </Button>
+                    <Button Command="{Binding Path=CreateOrder}" FontFamily="/MebelDB;component/Resources/#Google Sans">
+                        <Button.Foreground>
+                            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlDarkDarkColorKey}}"/>
+                        </Button.Foreground>
+                        <Button.Content>Оформление заказа [MANAGER ONLY]</Button.Content>
+                    </Button>
+                    <Button FontFamily="/MebelDB;component/Resources/#Google Sans">
+                        <Button.Foreground>
+                            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlDarkDarkColorKey}}"/>
+                        </Button.Foreground>
+                        <Button.Content>Сбой оборудования [MASTER ONLY]</Button.Content>
+                    </Button>
+                    <Button FontFamily="/MebelDB;component/Resources/#Google Sans">
+                        <Button.Foreground>
+                            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlDarkDarkColorKey}}"/>
+                        </Button.Foreground>
+                        <Button.Content>Контроль качества [MASTER ONLY]</Button.Content>
+                    </Button>
+                    <Button  Command="{Binding Path=AllEquipment}" FontFamily="/MebelDB;component/Resources/#Google Sans">
+                        <Button.Content>Учет оборудования [DIRECTOR ONLY]</Button.Content>
+                        <Button.Foreground>
+                            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlDarkDarkColorKey}}"/>
+                        </Button.Foreground>
+                    </Button>
+                    <Button  Command="{Binding Path=MFControl}" FontFamily="/MebelDB;component/Resources/#Google Sans">
+                        <Button.Content>Учет фурнитуры и материалов</Button.Content>
+                        <Button.Foreground>
+                            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlDarkDarkColorKey}}"/>
+                        </Button.Foreground>
+                    </Button>
+                </ToolBar>
 
 
-        <TabControl  x:Name="Tabs" Background="#FF1E1E1E" Margin="20,48,22,21">
+            </ToolBarTray>
+        </materialDesign:Card>
+
+        <TabControl x:Name="Tabs" Background="{StaticResource MaterialDesignBackground}" Margin="0,60,0,0">
             <!--<Frame x:Name="frame" Margin="0,20,0,0"></Frame>-->
-            <TabItem >
+            <TabControl.ItemTemplate>
+                <DataTemplate>
+                    <TabItem Style="{DynamicResource MaterialDesignHeaderedContentControl}">
+                    </TabItem>
+                </DataTemplate>
+            </TabControl.ItemTemplate>
+            <TabItem Style="{DynamicResource MaterialDesignHeaderedContentControl}">
 
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
@@ -47,9 +83,8 @@
 
             </TabItem>
         </TabControl>
-        <Button Command="{Binding Path=CloseTab}" Content="X" VerticalAlignment="Top" Height="25" HorizontalAlignment="Right" Width="28" ToolTip="Закрыть вкладку"/>
+        <Button Command="{Binding Path=CloseTab}" Content="X" VerticalAlignment="Top" Height="55" HorizontalAlignment="Right" Width="61" ToolTip="Закрыть вкладку"/>
 
 
-        <Label Content="DEBUG MENU" HorizontalContentAlignment="Center" Margin="0,25,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="#33FFD100" FontFamily="/MebelDB;component/Resources/#Google Sans Medium"/>
     </Grid>
 </Window>

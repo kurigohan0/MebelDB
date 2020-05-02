@@ -91,3 +91,10 @@ C:\Users\Evgeny\Documents\GitHub\MebelDB\MebelDB\obj\Debug\View\EquipmentPage.ba
 C:\Users\Evgeny\Documents\GitHub\MebelDB\MebelDB\obj\Debug\Themes\Generic.baml
 C:\Users\Evgeny\Documents\GitHub\MebelDB\MebelDB\obj\Debug\View\MFControlPage.g.cs
 C:\Users\Evgeny\Documents\GitHub\MebelDB\MebelDB\obj\Debug\View\MFControlPage.baml
+C:\Users\Evgeny\Documents\GitHub\MebelDB\MebelDB\obj\Debug\View\Styles.baml
+C:\Users\Evgeny\Documents\GitHub\MebelDB\MebelDB\obj\Debug\App.baml
+C:\Users\Evgeny\Documents\GitHub\MebelDB\MebelDB\bin\Debug\MaterialDesignColors.dll
+C:\Users\Evgeny\Documents\GitHub\MebelDB\MebelDB\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\Evgeny\Documents\GitHub\MebelDB\MebelDB\bin\Debug\MaterialDesignColors.pdb
+C:\Users\Evgeny\Documents\GitHub\MebelDB\MebelDB\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\Evgeny\Documents\GitHub\MebelDB\MebelDB\bin\Debug\MaterialDesignThemes.Wpf.xml
