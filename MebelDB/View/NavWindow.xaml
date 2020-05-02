@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MebelDB.View"
         mc:Ignorable="d"
-        Title="DEBUG MENU" Height="542" Width="800" Background="#FF121212">
+        Title="DEBUG MENU" Height="557" Width="1184" Background="#FF121212">
     <Grid>
-        <ToolBarTray IsLocked="False" Height="50" VerticalAlignment="Top" Background="#FF1E1E1E">
+        <ToolBarTray IsLocked="True" Height="50" VerticalAlignment="Top" Background="#FF1E1E1E">
             <ToolBar Height="25" VerticalAlignment="Top" Background="#FF1E1E1E">
                 <Button Foreground="White" Command="{Binding Path=AllOrders}" FontFamily="/MebelDB;component/Resources/#Google Sans">
                     <Button.Content>Список заказов</Button.Content>
@@ -33,10 +33,21 @@
         </ToolBarTray>
 
 
-        <TabControl  x:Name="Tabs" Background="#FF1E1E1E" Margin="20,50,22,21">
+        <TabControl  x:Name="Tabs" Background="#FF1E1E1E" Margin="20,48,22,21">
             <!--<Frame x:Name="frame" Margin="0,20,0,0"></Frame>-->
+            <TabItem Margin="-2,0">
+
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../Resources/tipicon.png" Height="18" Width="18"></Image>
+                        <TextBlock Margin="3">Окно приветстивия</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <Label Content="Выберите вкладку для начала работы. " HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="32" Foreground="#FF5D5D5D" FontFamily="/MebelDB;component/Resources/#Google Sans Medium"></Label>
+
+            </TabItem>
         </TabControl>
-        <Button Command="{Binding Path=CloseTab}" Content="X" VerticalAlignment="Top" Height="25" HorizontalAlignment="Right" Width="30" ToolTip="Закрыть вкладку"/>
+        <Button Command="{Binding Path=CloseTab}" Content="X" VerticalAlignment="Top" Height="25" HorizontalAlignment="Right" Width="28" ToolTip="Закрыть вкладку"/>
 
 
         <Label Content="DEBUG MENU" HorizontalContentAlignment="Center" Margin="0,25,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="#33FFD100" FontFamily="/MebelDB;component/Resources/#Google Sans Medium"/>
