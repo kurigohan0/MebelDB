@@ -5,20 +5,76 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MebelDB.View"
         mc:Ignorable="d"
-        Title="Регистрация" Height="321" Width="309" ResizeMode="NoResize" Background="#FF121212">
+          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="Регистрация" Height="321" Width="309" ResizeMode="NoResize">
     <Grid>
-        <TextBox Height="23" Margin="105,79,26,0" TextWrapping="Wrap" Text="{Binding Path=Login}" VerticalAlignment="Top" Background="#FF2D2D2D" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
-        <Label Content="Регистрация" Margin="10,10,26,0" HorizontalContentAlignment="Center" VerticalAlignment="Top" Height="50" FontSize="30" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans Medium"/>
-        <TextBox Height="23" Margin="105,107,26,0" TextWrapping="Wrap" Text="{Binding Path=Password}" VerticalAlignment="Top" Background="#FF2D2D2D" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
-        <Label Content="Логин" Margin="10,76,206,0" VerticalAlignment="Top" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
-        <Label Content="Пароль" Margin="10,107,206,0" VerticalAlignment="Top" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
-        <TextBox Height="23" Margin="105,137,26,0" TextWrapping="Wrap" Text="{Binding Path=Name}" VerticalAlignment="Top" Background="#FF2D2D2D" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
-        <TextBox Height="23" Margin="105,165,26,0" TextWrapping="Wrap" Text="{Binding Path= Lastname}" VerticalAlignment="Top" Background="#FF2D2D2D" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
-        <Label Content="Имя" Margin="10,134,206,0" VerticalAlignment="Top" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
-        <Label Content="Фамилия" Margin="10,165,206,0" VerticalAlignment="Top" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
-        <TextBox Height="23" Margin="105,193,26,0" TextWrapping="Wrap" Text="{Binding Path=Patronic}" VerticalAlignment="Top" Background="#FF2D2D2D" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
-        <Label Content="Отчетсво" Margin="10,193,206,0" VerticalAlignment="Top" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans"/>
-        <Button Content="Регистрация"  Command="{Binding Path=RegistrationCommand}" Margin="10,0,26,21" Height="35" VerticalAlignment="Bottom" Background="#FF2D2D2D" Foreground="White" FontFamily="/MebelDB;component/Resources/#Google Sans Medium"/>
+        <TextBox Height="23" Margin="105,79,26,0" TextWrapping="Wrap" Text="{Binding Path=Login}" VerticalAlignment="Top" Background="{DynamicResource MaterialDesignLightBackground}" FontFamily="/MebelDB;component/Resources/#Google Sans">
+            <TextBox.Foreground>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GrayTextColorKey}}"/>
+            </TextBox.Foreground>
+        </TextBox>
+        <Label Content="Регистрация" Margin="10,10,26,0" HorizontalContentAlignment="Center" VerticalAlignment="Top" Height="50" FontSize="30" FontFamily="/MebelDB;component/Resources/#Google Sans Medium">
+            <Label.Foreground>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GrayTextColorKey}}"/>
+            </Label.Foreground>
+        </Label>
+        <TextBox Height="23" Margin="105,107,26,0" TextWrapping="Wrap" Text="{Binding Path=Password}" VerticalAlignment="Top" Background="{DynamicResource MaterialDesignLightBackground}" FontFamily="/MebelDB;component/Resources/#Google Sans">
+            <TextBox.Foreground>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GrayTextColorKey}}"/>
+            </TextBox.Foreground>
+        </TextBox>
+        <Label Content="Логин" Margin="10,76,206,0" VerticalAlignment="Top" FontFamily="/MebelDB;component/Resources/#Google Sans">
+            <Label.Foreground>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GrayTextColorKey}}"/>
+            </Label.Foreground>
+        </Label>
+        <Label Content="Пароль" Margin="10,107,206,0" VerticalAlignment="Top" FontFamily="/MebelDB;component/Resources/#Google Sans">
+            <Label.Foreground>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GrayTextColorKey}}"/>
+            </Label.Foreground>
+        </Label>
+        <TextBox Height="23" Margin="105,137,26,0" TextWrapping="Wrap" Text="{Binding Path=Name}" VerticalAlignment="Top" Background="{DynamicResource MaterialDesignLightBackground}" FontFamily="/MebelDB;component/Resources/#Google Sans">
+            <TextBox.Foreground>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GrayTextColorKey}}"/>
+            </TextBox.Foreground>
+        </TextBox>
+        <TextBox Height="23" Margin="105,165,26,0" TextWrapping="Wrap" Text="{Binding Path= Lastname}" VerticalAlignment="Top" Background="{DynamicResource MaterialDesignLightBackground}" FontFamily="/MebelDB;component/Resources/#Google Sans">
+            <TextBox.Foreground>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GrayTextColorKey}}"/>
+            </TextBox.Foreground>
+        </TextBox>
+        <Label Content="Имя" Margin="10,134,206,0" VerticalAlignment="Top" FontFamily="/MebelDB;component/Resources/#Google Sans">
+            <Label.Foreground>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GrayTextColorKey}}"/>
+            </Label.Foreground>
+        </Label>
+        <Label Content="Фамилия" Margin="10,165,206,0" VerticalAlignment="Top" FontFamily="/MebelDB;component/Resources/#Google Sans">
+            <Label.Foreground>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GrayTextColorKey}}"/>
+            </Label.Foreground>
+        </Label>
+        <TextBox Height="23" Margin="105,193,26,0" TextWrapping="Wrap" Text="{Binding Path=Patronic}" VerticalAlignment="Top" Background="{DynamicResource MaterialDesignLightBackground}" FontFamily="/MebelDB;component/Resources/#Google Sans">
+            <TextBox.Foreground>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GrayTextColorKey}}"/>
+            </TextBox.Foreground>
+        </TextBox>
+        <Label Content="Отчетсво" Margin="10,193,206,0" VerticalAlignment="Top" FontFamily="/MebelDB;component/Resources/#Google Sans">
+            <Label.Foreground>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GrayTextColorKey}}"/>
+            </Label.Foreground>
+        </Label>
+        <Button Content="Регистрация"  Command="{Binding Path=RegistrationCommand}" Margin="10,0,26,21" Height="35" VerticalAlignment="Bottom" Background="{DynamicResource MaterialDesignToolBackground}" FontFamily="/MebelDB;component/Resources/#Google Sans Medium">
+            <Button.Foreground>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GrayTextColorKey}}"/>
+            </Button.Foreground>
+        </Button>
 
     </Grid>
 </Window>

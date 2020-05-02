@@ -25,5 +25,7 @@ namespace MebelDB.View
             InitializeComponent();
             DataContext = new ViewModel.EquipmentViewModel();
         }
+
+
     }
 }

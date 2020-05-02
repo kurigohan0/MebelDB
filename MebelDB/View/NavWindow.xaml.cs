@@ -22,7 +22,7 @@ namespace MebelDB.View
         public NavWindow()
         {
             InitializeComponent();
-            DataContext = new ViewModel.NavViewModel(this, Tabs );
+            DataContext = new ViewModel.NavViewModel(this, f);
         }
     }
 }

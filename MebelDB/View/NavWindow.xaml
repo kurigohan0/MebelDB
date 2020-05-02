@@ -62,9 +62,11 @@
 
             </ToolBarTray>
         </materialDesign:Card>
-
-        <TabControl x:Name="Tabs" Background="{StaticResource MaterialDesignBackground}" Margin="0,60,0,0">
-            <!--<Frame x:Name="frame" Margin="0,20,0,0"></Frame>-->
+        <Frame NavigationUIVisibility="Hidden" x:Name="f" Margin="0,60,0,0">
+            
+        </Frame>
+        <!--<TabControl x:Name="Tabs" Background="{StaticResource MaterialDesignBackground}" Margin="0,60,0,0">
+            --><!--<Frame x:Name="frame" Margin="0,20,0,0"></Frame>--><!--
             <TabControl.ItemTemplate>
                 <DataTemplate>
                     <TabItem Style="{DynamicResource MaterialDesignHeaderedContentControl}">
@@ -79,11 +81,14 @@
                         <TextBlock Margin="3">Окно приветстивия</TextBlock>
                     </StackPanel>
                 </TabItem.Header>
-                <Label  Content="{Binding Path=TipMsg}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="32" Foreground="#FF5D5D5D" FontFamily="/MebelDB;component/Resources/#Google Sans Medium"></Label>
+                <Label  Content="{Binding Path=TipMsg}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="32" FontFamily="/MebelDB;component/Resources/#Google Sans Medium">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GrayTextColorKey}}"/>
+                    </Label.Foreground>
+                </Label>
 
             </TabItem>
-        </TabControl>
-        <Button Command="{Binding Path=CloseTab}" Content="X" VerticalAlignment="Top" Height="55" HorizontalAlignment="Right" Width="61" ToolTip="Закрыть вкладку"/>
+        </TabControl>-->
 
 
     </Grid>
