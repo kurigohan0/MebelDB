@@ -77,6 +77,7 @@
     </Compile>
     <Compile Include="Model\Authorization.cs" />
     <Compile Include="Model\CurrentUser.cs" />
+    <Compile Include="Model\Editing.cs" />
     <Compile Include="Model\Equipment.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

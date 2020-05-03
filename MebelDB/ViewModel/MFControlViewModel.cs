@@ -2,11 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using MebelDB.Model;
 
 namespace MebelDB.ViewModel
 {
@@ -165,7 +168,7 @@ namespace MebelDB.ViewModel
                 return materialDeleteCommand ??
                     (materialDeleteCommand = new RelayCommand(obj =>
                     {
-                        //TODO
+                        //TODO обработка команд удаления
 
                     }));
             }
@@ -181,8 +184,22 @@ namespace MebelDB.ViewModel
                 return materialSaveCommand ??
                     (materialSaveCommand = new RelayCommand(obj =>
                     {
-                        //TODO
 
+                       
+
+                        Model.Editing.EditMaterial(new Materials
+                        {
+                            Vendor_code = MaterialSet[SelectedMaterial].Vendor_code,
+                            Name = MaterialName,
+                            Unit_measuring = MaterialMeasuring,
+                            Length = double.Parse(MaterialLength),
+                            Quantity = MaterialQuantity,
+                            Type_material = MaterialType,
+                            Purchase_price = MaterialPrice,
+                            GOST = MaterialGOST
+
+                        });
+                        
                     }));
             }
 
@@ -373,7 +390,15 @@ namespace MebelDB.ViewModel
                 return furnitureSaveCommand ??
                     (furnitureSaveCommand = new RelayCommand(obj =>
                     {
-                        //TODO
+                        Model.Editing.EditFurniture(new Furniture
+                        {
+                            Vendor_code = FurnitureSet[SelectedFurniture].Vendor_code,
+                            Name = FurnitureName,
+                            Unit_measuring = FurnitureMeasuring,
+                            Quantity = int.Parse(FurnitureQuantity),
+                            Purchase_price = int.Parse(FurniturePrice)
+
+                        });
 
                     }));
             }

@@ -65,7 +65,6 @@ C:\Users\Evgeny\Documents\GitHub\MebelDB\MebelDB\bin\Debug\EntityFramework.SqlSe
 C:\Users\Evgeny\Documents\GitHub\MebelDB\MebelDB\bin\Debug\EntityFramework.xml
 C:\Users\Evgeny\Documents\GitHub\MebelDB\MebelDB\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Evgeny\Documents\GitHub\MebelDB\MebelDB\bin\Debug\ru\EntityFramework.resources.dll
-C:\Users\Evgeny\Documents\GitHub\MebelDB\MebelDB\obj\Debug\MebelDB.csprojAssemblyReference.cache
 C:\Users\Evgeny\Documents\GitHub\MebelDB\MebelDB\obj\Debug\View\AllOrdersPage.g.cs
 C:\Users\Evgeny\Documents\GitHub\MebelDB\MebelDB\obj\Debug\View\CreateOrderPage.g.cs
 C:\Users\Evgeny\Documents\GitHub\MebelDB\MebelDB\obj\Debug\View\MainWindow.g.cs
@@ -98,3 +97,4 @@ C:\Users\Evgeny\Documents\GitHub\MebelDB\MebelDB\bin\Debug\MaterialDesignThemes.
 C:\Users\Evgeny\Documents\GitHub\MebelDB\MebelDB\bin\Debug\MaterialDesignColors.pdb
 C:\Users\Evgeny\Documents\GitHub\MebelDB\MebelDB\bin\Debug\MaterialDesignThemes.Wpf.pdb
 C:\Users\Evgeny\Documents\GitHub\MebelDB\MebelDB\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\Evgeny\Documents\GitHub\MebelDB\MebelDB\obj\Debug\MebelDB.csprojAssemblyReference.cache

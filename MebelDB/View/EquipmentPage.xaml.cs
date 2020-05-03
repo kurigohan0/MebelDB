@@ -23,7 +23,7 @@ namespace MebelDB.View
         public EquipmentPage()
         {
             InitializeComponent();
-            DataContext = new ViewModel.EquipmentViewModel();
+            DataContext = new ViewModel.EquipmentViewModel(this);
         }
 
 

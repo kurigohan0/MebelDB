@@ -37,7 +37,7 @@
             <ListView.Foreground>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GrayTextColorKey}}"/>
             </ListView.Foreground>
-
+           
 
 
             <ListView.View>
