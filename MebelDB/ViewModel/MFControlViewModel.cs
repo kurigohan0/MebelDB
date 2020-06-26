@@ -32,7 +32,7 @@ namespace MebelDB.ViewModel
             materialSet.Clear();
             await Task.Run(() =>
             {
-                foreach (var item in GetEntities().Furniture)
+                foreach (var item in new MebelEntities().Furniture)
                 {
                     p.Dispatcher.Invoke(() =>
                     {
